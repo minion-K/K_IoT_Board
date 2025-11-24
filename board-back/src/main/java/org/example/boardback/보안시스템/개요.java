@@ -29,7 +29,7 @@ package org.example.boardback.보안시스템;
                 /handler/*
 
     2-1. WebSecurityConfig 역할
-    : @EnableWebSecurity + SecurityFilterChain을 사용하여
+    : @EnableWebSecurity + SecurityFilterChain을 사용
 
     1) 세션 사용 안함 (STATELESS)
         - 옛날 방식: 서버가 로그인 세션을 기억
@@ -50,7 +50,7 @@ package org.example.boardback.보안시스템;
     : AccessToken / RefreshToken / Email 인증 토큰을 만들고 검증하는 역할
 
     1) 토큰에 담기는 역할
-        subject: username (로그인 아이디)\
+        subject: username (로그인 아이디)
         roles: 권한(ROLE_USER, ROLE_ADMIN)
         iat: 발급 시간
         exp: 만료 시간
