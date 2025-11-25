@@ -97,10 +97,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         // 프론트엔드로 보낼 리다이렉트 URL 생성
         // +) accessToken은 쿼리 파라미터에 포함하여 전송
-        String  targetUrl = UriComponentsBuilder.fromUriString(redirectUri)
-                .queryParam("accessToken", accessToken)
-                .build()
-                .toUriString();
+        String targetUrl = UriComponentsBuilder.fromUriString(redirectUri)
+               .queryParam("accessToken", accessToken)
+               .build()
+               .toUriString();
 
         // 세션에 남아있을 수 있는 인증 관련 속성들 정리
         clearAuthenticationAttributes(request);
