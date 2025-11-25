@@ -19,7 +19,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-
+import org.springframework.web.util.UriComponentsBuilder;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Set;
@@ -94,5 +94,18 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                 (int) (refreshMillis/1000),
                 false   // HTTPS 에서만 전송하도록 Secure 옵션 설정
         );
+
+        // 프론트엔드로 보낼 리다이렉트 URL 생성
+        // +) accessToken은 쿼리 파라미터에 포함하여 전송
+        String  targetUrl = UriComponentsBuilder.fromUriString(redirectUri)
+                .queryParam("accessToken", accessToken)
+                .build()
+                .toUriString();
+
+        // 세션에 남아있을 수 있는 인증 관련 속성들 정리
+        clearAuthenticationAttributes(request);
+
+        // 최종적으로 클라이언트를 targetUrl로 리다이렉트
+        getRedirectStrategy().sendRedirect(request, response, targetUrl);
     }
 }
