@@ -15,6 +15,7 @@ function AuthRouter() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/oauth2/callback/*" element={<OAuth2CallbackPage />} />
         {/* 기본 경로 */}
+        {/* 경로 이탈 문제 방지 */}
         <Route path="*" element={<LoginPage />} />
       </Routes>
     </div>

@@ -13,7 +13,7 @@ public class NaverOAuth2UserInfo extends Oauth2UserInfo{
 
     @Override
     public String getId() {
-        return (String) getResponse().get("sub");
+        return (String) getResponse().get("id");
     }
 
     @Override

@@ -20,7 +20,7 @@ public abstract class Oauth2UserInfo {
         return attributes;
     }
 
-    /** provider 별 고유 ID(sub, id) */
+    // provider 별 고유 ID(sub, id)
     public abstract String getId();
 
     // 이메일
