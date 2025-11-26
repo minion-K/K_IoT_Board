@@ -3,9 +3,12 @@ package org.example.boardback.dto.auth.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.example.boardback.common.enums.AuthProvider;
 import org.example.boardback.common.enums.Gender;
 import org.example.boardback.entity.file.FileInfo;
 import org.example.boardback.entity.user.User;
+
+import java.security.Provider;
 
 public record SignupRequestDto (
         @NotBlank(message = "아이디는 필수입니다.")
@@ -24,7 +27,9 @@ public record SignupRequestDto (
         @Size(max = 50, message = "닉네임은 최대 50자까지 가능합니다.")
         String nickname,
 
-        Gender gender
+        Gender gender,
+
+        AuthProvider provider
 ) {
     /**
      * DTO → Entity 변환 (비밀번호 암호화 전 상태)
@@ -32,13 +37,14 @@ public record SignupRequestDto (
      */
     // to) DTO -> Entity 변환할 떄
     //     : DTO를 Entity로 만든다
-    public User toEntity(String encodedPassword, FileInfo profileFile) {
+    public User toEntity(String encodedPassword, FileInfo profileFile, AuthProvider provider) {
         return User.builder()
                 .username(username)
                 .password(encodedPassword)
                 .email(email)
                 .nickname(nickname)
                 .gender(gender)
+                .provider(AuthProvider.LOCAL)
                 .profileFile(profileFile)
                 .build();
     }

@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ResponseDto<?>> handleBusinessException(BusinessException e) {
         ErrorCode code = e.getErrorCode();
         log.warn("[BusinessException] {}", code.getMessage());
-
+        e.printStackTrace();
         return ResponseEntity
                 .status(code.getStatus())
                 .body(ResponseDto.failure(code.getMessage(), code.getStatus().value(), code.name()));

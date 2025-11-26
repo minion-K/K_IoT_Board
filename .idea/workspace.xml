@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="282a149e-ad14-42e3-97b7-99602f621345" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/user/request/UserProfileUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/user/response/MeResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/user/response/UserProfileImageResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/user/response/UserResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/service/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/service/user/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/common/apis/user/UserApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/common/apis/user/UserApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/auth/request/SignupRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/dto/auth/request/SignupRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/security/user/UserPrincipalMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/security/user/UserPrincipalMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/service/auth/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/board-back/src/main/java/org/example/boardback/service/auth/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/apis/auth/auth.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/apis/auth/auth.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/apis/common/axiosInstance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/apis/common/axiosInstance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/apis/user/user.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/apis/user/user.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/stores/auth.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/stores/auth.store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/types/auth/auth.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/types/auth/auth.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/types/user/user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/types/user/user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board-front/src/types/user/user.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/board-front/src/types/user/user.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board_v1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/board_v1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_dump_board_v1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init_dump_board_v1.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;minion-K&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/minion-K/K_IoT_Board.git&quot;,
+    &quot;accountId&quot;: &quot;36668922-f6ae-41b4-9c01-5bb123b3a511&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="35zdJvwXANXp21JHm8lJwamG3hI" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/_권민현/수업자료_board&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="282a149e-ad14-42e3-97b7-99602f621345" name="변경" comment="" />
+      <created>1764116765861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764116765861</updated>
+      <workItem from="1764116767090" duration="12000" />
+      <workItem from="1764116790989" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

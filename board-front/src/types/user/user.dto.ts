@@ -29,6 +29,6 @@ export interface MeResponse {
   email: string;
   nickname: string;
   profileImageUrl?: string;
-  roles: string[];          // RoleType: USER / MANAGER / ADMIN
-  provider: "LOCAL" | "GOOGLE" | "KAKAO" | "NAVER"
+  roles: string[]; // RoleType: USER / MANAGER / ADMIN
+  provider: "LOCAL" | "GOOGLE" | "KAKAO" | "NAVER";
 }
