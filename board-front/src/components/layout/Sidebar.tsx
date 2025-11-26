@@ -57,6 +57,12 @@ const sidebarStyle = (isOpen: boolean) => css`
     margin-left: auto;
     border: none;
     background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .close:hover {
+    transform: rotate(90deg);
   }
 
   .items {
