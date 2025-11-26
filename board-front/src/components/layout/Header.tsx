@@ -23,7 +23,7 @@ function Header({ onToggleSidebar }: HeaderProps) {
 export default Header;
 
 const headerStyle = css`
-  /* height: var(--header-height); */
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,6 +42,7 @@ const headerStyle = css`
     flex-direction: column;
     gap: 5px;
   }
+
   .sidebar-btn,
   .right {
     cursor: pointer;
@@ -54,5 +55,6 @@ const headerStyle = css`
   h1 {
     text-align: center;
     color: var(--primary);
+    
   }
 `;

@@ -133,7 +133,7 @@ function LoginPage() {
       <SocialLoginButtons />
 
       <div style={{marginTop: 16}}>
-        <Link to="/register">회원가입</Link>
+        <Link to="/register">회원가입 | </Link>
         <Link to="/forgot-password">비밀번호 재설정</Link>
       </div>
     </div>
