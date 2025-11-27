@@ -8,8 +8,6 @@ import org.example.boardback.common.enums.Gender;
 import org.example.boardback.entity.file.FileInfo;
 import org.example.boardback.entity.user.User;
 
-import java.security.Provider;
-
 public record SignupRequestDto (
         @NotBlank(message = "아이디는 필수입니다.")
         @Size(min = 4, max = 50, message = "아이디는 4~50자 사이여야 합니다.")
@@ -18,6 +16,10 @@ public record SignupRequestDto (
         @NotBlank(message = "비밀번호는 필수입니다.")
         @Size(min = 8, max = 100, message = "비밀번호는 최소 8자 이상이어야 합니다.")
         String password,
+
+        @NotBlank(message = "비밀번호 확인은 필수입니다.")
+        @Size(min = 8, max = 100, message = "비밀번호는 최소 8자 이상이어야 합니다.")
+        String confirmPassword,
 
         @NotBlank(message = "이메일은 필수입니다.")
         @Email(message = "이메일 형식이 올바르지 않습니다.")
@@ -37,14 +39,13 @@ public record SignupRequestDto (
      */
     // to) DTO -> Entity 변환할 떄
     //     : DTO를 Entity로 만든다
-    public User toEntity(String encodedPassword, FileInfo profileFile, AuthProvider provider) {
+    public User toEntity(String encodedPassword, FileInfo profileFile) {
         return User.builder()
                 .username(username)
                 .password(encodedPassword)
                 .email(email)
                 .nickname(nickname)
                 .gender(gender)
-                .provider(AuthProvider.LOCAL)
                 .profileFile(profileFile)
                 .build();
     }

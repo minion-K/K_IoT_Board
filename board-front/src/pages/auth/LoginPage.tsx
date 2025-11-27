@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { authApi } from "@/apis/auth/auth.api";
 import { publicApi } from "@/apis/common/axiosInstance";
 import { userApi } from "@/apis/user/user.api";
@@ -5,6 +6,7 @@ import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 import { useAuthStore } from "@/stores/auth.store";
 import type { UserLoginForm } from "@/types/user/user.type";
 import { getErrorMessage } from "@/utils/error";
+import { css } from "@emotion/react";
 import { useMutation } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -36,14 +38,16 @@ function LoginPage() {
   };
 
   //! fetch (react-query: Mutation)
-  const loginMutation = useMutation({ // react-qeury의 useMutation으로 로그인 요청 정의
-    mutationFn: async () => {         // 실제로 실행될 비동기 함수 정의
+  const loginMutation = useMutation({
+    // react-qeury의 useMutation으로 로그인 요청 정의
+    mutationFn: async () => {
+      // 실제로 실행될 비동기 함수 정의
       const res = await authApi.loginApi(form);
 
-      if(!res || !res.data) {
-        throw new Error ("로그인 정보가 올바르지 않습니다.");
+      if (!res || !res.data) {
+        throw new Error("로그인 정보가 올바르지 않습니다.");
       }
-      
+
       // accessToken 저장
       setAccessToken(res.data?.accessToken);
 
@@ -55,16 +59,17 @@ function LoginPage() {
       }
 
       setUser(me.data);
-
     },
 
-    onSuccess: () => {  // mutationFn이 에러 없이 성공했을 때 실행되는 콜백
+    onSuccess: () => {
+      // mutationFn이 에러 없이 성공했을 때 실행되는 콜백
       navigate("/");
     },
 
-    onError: (err: any) => {  // mutationFn 실행 중 에러가 발생했을 때 호출되는 콜백
-        setErrorMessage(getErrorMessage(err, "로그인에 실패했습니다."))
-    }
+    onError: (err: any) => {
+      // mutationFn 실행 중 에러가 발생했을 때 호출되는 콜백
+      setErrorMessage(getErrorMessage(err, "로그인에 실패했습니다."));
+    },
   });
 
   /*
@@ -78,7 +83,7 @@ function LoginPage() {
     e.preventDefault();
     setErrorMessage(null);
 
-    if(!form.username || !form.password) {
+    if (!form.username || !form.password) {
       setErrorMessage("아이디와 비밀번호를 입력해주세요");
       return;
     }
@@ -87,13 +92,13 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>로그인</h1>
+    <div css={container}>
+      <h1 css={title}>로그인</h1>
 
       {/* 로컬 로그인 폼 */}
-      <form onSubmit={handleSubmit}>
-        <label>
-          아이디
+      <form css={formStyle} onSubmit={handleSubmit}>
+        <div css={inputGroup}>
+          <label>아이디</label>
           <input
             type="text"
             name="username"
@@ -101,10 +106,9 @@ function LoginPage() {
             onChange={handleChange}
             required
           />
-        </label>
-        <br />
-        <label>
-          비밀번호
+        </div>
+        <div css={inputGroup}>
+          <label>비밀번호 *</label>
           <input
             type="password"
             name="password"
@@ -112,21 +116,23 @@ function LoginPage() {
             onChange={handleChange}
             required
           />
-        </label>
-        <br />
-        <button type="submit" >
-          {}
+        </div>
+        {/* 에러 메시지 */}
+        {errorMessage && <p css={errorText}>{errorMessage}</p>}
+        <button
+          css={buttonStyle}
+          type="submit"
+          disabled={loginMutation.isPending}
+        >
+          {loginMutation.isPending ? "로그인 중" : "로그인"}
         </button>
       </form>
-
-      {/* 에러 메시지 */}
-      
 
       {/* 소셜 로그인 버튼 */}
       <SocialLoginButtons />
 
-      <div style={{ marginTop: 16 }}>
-        <Link to="/register">회원가입 | </Link>
+      <div css={linkBox}>
+        <Link to="/register">회원가입</Link>
         <Link to="/forgot-password">비밀번호 재설정</Link>
       </div>
     </div>
@@ -134,3 +140,67 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+const container = css`
+  max-width: 380px;
+  margin: 60px auto;
+  padding: 20px;
+`;
+
+const title = css`
+  text-align: center;
+  margin-bottom: 24px;
+`;
+const formStyle = css`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+const inputGroup = css`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+  }
+`;
+
+const errorText = css`
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -8px;
+`;
+
+const buttonStyle = css`
+  padding: 12px;
+  background: #1b73e8;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+`;
+
+const linkBox = css`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: #1b73e8;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+`;
+
+
+

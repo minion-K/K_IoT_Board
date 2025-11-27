@@ -5,7 +5,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.boardback.common.enums.AuthProvider;
 import org.example.boardback.common.enums.ErrorCode;
 import org.example.boardback.dto.ResponseDto;
 import org.example.boardback.dto.auth.request.*;
@@ -227,10 +226,17 @@ public class AuthServiceImpl implements AuthService {
             throw new BusinessException(ErrorCode.DUPLICATE_USER);
         }
 
+        if (!request.password().equals(request.confirmPassword())) {
+            throw new BusinessException(ErrorCode.PASSWORD_CONFIRM_MISMATCH);
+        }
+
         // 이메일 중복 체크
         if (userRepository.findByEmail(request.email()).isPresent()) {
             throw new BusinessException(ErrorCode.DUPLICATE_USER);
         }
+
+        System.out.println("provider name:" + request.provider().name());
+        System.out.println("gender:" + request.gender());
 
         // User 엔티티 생성 + 저장
         User newUser = User.builder()
@@ -238,8 +244,9 @@ public class AuthServiceImpl implements AuthService {
                 // 비밀번호 암호화
                 .password(passwordEncoder.encode(request.password()))
                 .email(request.email())
-                .provider(AuthProvider.LOCAL)
                 .nickname(request.nickname())
+                .gender(request.gender())
+                .provider(request.provider())
                 .build();
 
         userRepository.save(newUser);
