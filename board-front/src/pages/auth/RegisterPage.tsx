@@ -17,7 +17,7 @@ export default function RegisterPage() {
     confirmPassword: "",
     email: "",
     nickname: "",
-    gender: "NONE",
+    gender: "N",
     provider: "LOCAL",
   });
 
@@ -49,6 +49,7 @@ export default function RegisterPage() {
 
     setErrorMessage(null);
 
+    console.log(form.gender);
     if (form.password !== form.confirmPassword) {
       setErrorMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
@@ -195,9 +196,5 @@ const linkBox = css`
 
   a {
     color: #1b73e8;
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 `;
