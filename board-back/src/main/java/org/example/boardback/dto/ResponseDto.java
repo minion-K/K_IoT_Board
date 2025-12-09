@@ -15,7 +15,6 @@ public class ResponseDto<T> {
     private final String message;          // 메시지
     private final T data;                  // 응답 데이터
     private final Instant timestamp;       // 시간
-
     private final Integer status;          // HTTP 상태 코드
     private final String code;             // ErrorCode(C001, A003 등)
 

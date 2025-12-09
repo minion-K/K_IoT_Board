@@ -86,12 +86,12 @@ CREATE TABLE payments (
     product_code VARCHAR(50) NOT NULL COMMENT '상품 코드',
     product_name VARCHAR(100) NOT NULL COMMENT '상품 이름',
     
-    failure_code VARCHAR(50) NOT NULL COMMENT '결제 실패 코드',
-    failure_message VARCHAR(255) NOT NULL COMMENT '결제 실패 메시지',
+    failure_code VARCHAR(50) NULL COMMENT '결제 실패 코드',
+    failure_message VARCHAR(255) NULL COMMENT '결제 실패 메시지',
     
 	requested_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '결제 요청 시간',
-	approveed_at DATETIME(6) NOT NULL COMMENT '결제 승인 시간',
-	cancelled_at DATETIME(6) NOT NULL COMMENT '결제 취소/환불 시간',
+	approved_at DATETIME(6) NULL COMMENT '결제 승인 시간',
+	cancelled_at DATETIME(6) NULL COMMENT '결제 취소/환불 시간',
     
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -123,7 +123,7 @@ CREATE TABLE payment_refunds (
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
     
-    INDEX `idx_payment_refunds_payment_id` (paymend_id),
+    INDEX `idx_payment_refunds_payment_id` (payment_id),
     
     CONSTRAINT `fk_payment_refunds_payment` FOREIGN KEY (payment_id) REFERENCES payments(id)
 )
@@ -141,6 +141,8 @@ CREATE TABLE roles (
     DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci
     COMMENT = '사용자 권한 테이블';
+    
+INSERT INTO roles VALUES ('ADMIN'), ('MANAGER'), ('USER');
 
 # === USER_ROLES (유저-권한 매핑) === #
 CREATE TABLE user_roles (

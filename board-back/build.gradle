@@ -47,7 +47,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // Java 8 Date/Time Serialization (Java 8 날짜/시간 직렬화)
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0'
+//    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0'
 
     // OAuth2
 

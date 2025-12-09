@@ -72,8 +72,7 @@ public class User extends BaseTimeEntity {
     private boolean emailVerified;
 
     // === 결제 필드 ===
-    private Long pointBalance; // 잔고
-
+    private Long pointBalance = 0L; // 잔고
 
     @Builder
     private User(
